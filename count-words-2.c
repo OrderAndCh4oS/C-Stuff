@@ -39,7 +39,6 @@ bool alphabetic(const char c)
 void readline(char buffer[])
 {
     char character;
-
     int i = 0;
 
     do
@@ -71,5 +70,6 @@ int countWords(const char string[])
             lookingForWords = true;
         }
     }
+
     return wordCount;
 }
