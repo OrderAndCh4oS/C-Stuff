@@ -1,19 +1,7 @@
 #include <stdio.h>
-#include <string.h>
 
-const char* fb[] = {"fizz\0", "buzz\0"};
+const char* fb[] = {"fizz", "buzz"};
 const int divide[2] = {3, 5};
-
-void fizzbuzz(int i);
-
-int main(void)
-{
-
-    for(int i = 1; i <= 100; i++)
-    {
-        fizzbuzz(i);
-    }
-}
 
 void fizzbuzz(int i)
 {
@@ -30,3 +18,13 @@ void fizzbuzz(int i)
     }
     printf("\n");
 }
+
+int main(void)
+{
+    for(int i = 1; i <= 100; i++)
+    {
+        fizzbuzz(i);
+    }
+}
+
+
