@@ -25,6 +25,7 @@ int main(void)
     {
         fizzbuzz(i);
     }
+    return 0;
 }
 
 
