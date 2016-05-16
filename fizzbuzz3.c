@@ -1,24 +1,12 @@
 #include <stdio.h>
-
 int main(void)
 {
-    const char* fb[] = {"fizz", "buzz"};
-    const int divide[2] = {3, 5};
-    for(int i = 1; i <= 100; i++)
+    char fb[] = {"fizz", "buzz"};
+    int d[] = {3, 5};
+    for(int i=1;i<101;i++)
     {
-        int b = 1;
-        for (int j = 0; j < 2; j++)
-        {
-            if(i % divide[j] == 0)
-            {
-                printf("%s", fb[j]);
-                b = 0;
-            }
-        }
-        if (b)
-        {
-            printf("%i", i);
-        }
+        for (int j=0;j<2;j++)
+            printf("%s",i%d[j]==0?fb[j]:(char)i);
         printf("\n");
     }
     return 0;
