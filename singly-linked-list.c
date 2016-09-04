@@ -10,25 +10,41 @@ typedef struct node {
 node createList(int data);
 bool find(node head, int data);
 node insert(node head, int data);
-void destroy(node head);
+void destroy(node *head);
 
 int main(void)
 {
-    struct node list = createList(123);
-    struct node *pList = &list;
+    struct node list;
+    struct node *pList;
+    list = createList(123);
+    pList = &list;
     if (find(list, 123))
-        printf("Found %i\n", list.val);
+        printf("Found %i\n", pList->val);
     else
         printf("Not Found\n");
     list = insert(list, 145);
-    pList = &list;
-    printf("%i\n", list.val);
-    printf("%i\n", list.next->val);
+    list = insert(list, 125);
+    printf("%p\n", pList->next->next);
     if (find(list, 145))
     {
-        printf("Found %i\n", list.next->val);
+        printf("Found %i\n", pList->val);
+    } else {
+        printf("Not Found\n");
     }
-    printf("%i\n", list.val);
+    if (find(list, 123))
+    {
+        printf("Found %i\n", pList->next->val);
+    }
+    if (find(list, 125))
+    {
+        printf("Found");
+    } else {
+        printf("Not Found");
+    }
+    printf("passed not found example");
+
+    //destroy(list);
+    //printf("%i\n", list.val);
     return 0;
 }
 
@@ -51,15 +67,18 @@ bool find(node head, int data)
     // Create traversal pointer pointing to the list head
     node *crawler = &head;
     // If the current node val is equal to data return true
-    if (crawler->val == data)
-        return true;
-    // Else set traversal pointer to next pointer and repeat
-    while (crawler->next != NULL)
+    do
     {
-        crawler = crawler->next;
-            if (crawler->val == data)
-                return true;
-    }
+        printf("crawler: %i\n", crawler->val);
+        printf("crawler pointer: %p\n", crawler->next);
+        if (crawler->val == data)
+            return true;
+        if (crawler->next != 0)
+        {
+            crawler = crawler->next;
+        }
+    } while (crawler->next != NULL);
+    // Else set traversal pointer to next pointer and repeat
     // If node val ever equals NULL return false
     return false;
 }
@@ -76,14 +95,12 @@ node insert(node head, int data)
     return list;
 }
 
-void destroy(node head)
+void destroy(node *head)
 {
     // Not tested
-    node* crawler = &head;
+    node* crawler = head;
     // If null stop
     if (crawler->next != NULL)
-        destroy(*crawler);
-
     free(crawler);
     // Delete the rest of the list
     // Free the current node

@@ -22,7 +22,7 @@ int main(void)
         {"Carrot", "Orange veg"},
         {"Date", "Like a fig but different"},
         {"Eggplant", "It's an aubergine"},
-        {"Fig", "Like a date int it"},
+        {"Fig", "Like a date"},
         {"Guava", "Some sort of fruit"},
         {"Honeydew", "Little melon like"},
         {"Iceberg", "It's a Lettuce"},
